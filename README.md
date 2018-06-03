@@ -19,10 +19,10 @@ Open the reference code:
 - Navigate to the reference code root, and enter
 
 Source and test directories should already be tagged as such:
-    - File/Project Structure...
-    - Select "Modules"
-        - Tag src directory as Sources
-        - Tag test directory as Tests
-        - Click "OK"
+- File/Project Structure...
+- Select "Modules"
+  - Tag src directory as Sources
+  - Tag test directory as Tests
+  - Click "OK"
 
 Confirm that everything builds correctly (and necessary libraries exist)
