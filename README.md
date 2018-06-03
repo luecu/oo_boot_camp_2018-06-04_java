@@ -9,7 +9,7 @@ development tools (and versions). The following instructions are for installing
 the code in IntelliJ 2017 by JetBrains. Adapt as necessary for your environment.
 
 ## IntelliJ setup
-Note: The original was setup to use Java SDK 10
+Note: The original was setup to use Java SDK 10 and JUnit 5.
 
 Open the reference code:
 - Download the source code from github.com/fredgeorge
