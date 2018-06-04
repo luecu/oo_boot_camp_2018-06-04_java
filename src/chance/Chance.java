@@ -23,4 +23,9 @@ public class Chance {
     private boolean equals(Chance other) {
         return this.fraction == other.fraction;
     }
+
+    @Override
+    public int hashCode() {
+        return Double.hashCode(fraction);
+    }
 }
