@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c43f926e-f192-43b4-86e1-e2e7a4a97a77" name="Default" comment="" />
+    <list default="true" id="c43f926e-f192-43b4-86e1-e2e7a4a97a77" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/src/chance/Chance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/chance/Chance.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/unit/ChanceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/unit/ChanceTest.java" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -15,10 +18,11 @@
       <file leaf-file-name="ChanceTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/unit/ChanceTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="309">
-              <caret line="41" selection-start-line="41" selection-end-line="41" />
+            <state relative-caret-position="787">
+              <caret line="59" column="5" selection-start-line="59" selection-start-column="5" selection-end-line="59" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#1158#1159#0" expanded="true" />
                 <element signature="e#1234#1235#0" expanded="true" />
               </folding>
             </state>
@@ -28,8 +32,8 @@
       <file leaf-file-name="Chance.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/chance/Chance.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="423">
-              <caret line="26" column="13" lean-forward="true" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
+            <state relative-caret-position="712">
+              <caret line="37" column="58" selection-start-line="37" selection-start-column="58" selection-end-line="37" selection-end-column="58" />
               <folding>
                 <element signature="e#263#264#0" expanded="true" />
                 <element signature="e#310#311#0" expanded="true" />
@@ -37,6 +41,10 @@
                 <element signature="e#521#522#0" expanded="true" />
                 <element signature="e#680#681#0" expanded="true" />
                 <element signature="e#719#720#0" expanded="true" />
+                <element signature="e#751#752#0" expanded="true" />
+                <element signature="e#776#777#0" expanded="true" />
+                <element signature="e#912#913#0" expanded="true" />
+                <element signature="e#933#934#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -83,9 +91,9 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-14" />
+    <option name="x" value="-11" />
     <option name="width" value="3219" />
-    <option name="height" value="1749" />
+    <option name="height" value="1742" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
@@ -222,9 +230,6 @@
     </recent_temporary>
   </component>
   <component name="TestHistory">
-    <history-entry file="All_in_oo_boot_camp_2018-06-04_java - 2018.06.03 at 16h 03m 29s.xml">
-      <configuration name="All in oo_boot_camp_2018-06-04_java" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="All_in_oo_boot_camp_2018-06-04_java - 2018.06.03 at 16h 04m 23s.xml">
       <configuration name="All in oo_boot_camp_2018-06-04_java" configurationId="JUnit" />
     </history-entry>
@@ -252,9 +257,12 @@
     <history-entry file="All_in_oo_boot_camp_2018-06-04_java - 2018.06.04 at 13h 46m 31s.xml">
       <configuration name="All in oo_boot_camp_2018-06-04_java" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="All_in_oo_boot_camp_2018-06-04_java - 2018.06.04 at 14h 09m 03s.xml">
+      <configuration name="All in oo_boot_camp_2018-06-04_java" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="0" width="1839" height="999" extended-state="0" />
+    <frame x="-6" y="0" width="1839" height="995" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
@@ -266,7 +274,7 @@
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32847533" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32847533" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
@@ -356,10 +364,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test/unit/ChanceTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="41" selection-start-line="41" selection-end-line="41" />
+        <state relative-caret-position="787">
+          <caret line="59" column="5" selection-start-line="59" selection-start-column="5" selection-end-line="59" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#1158#1159#0" expanded="true" />
             <element signature="e#1234#1235#0" expanded="true" />
           </folding>
         </state>
@@ -367,8 +376,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/chance/Chance.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="423">
-          <caret line="26" column="13" lean-forward="true" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
+        <state relative-caret-position="712">
+          <caret line="37" column="58" selection-start-line="37" selection-start-column="58" selection-end-line="37" selection-end-column="58" />
           <folding>
             <element signature="e#263#264#0" expanded="true" />
             <element signature="e#310#311#0" expanded="true" />
@@ -376,6 +385,10 @@
             <element signature="e#521#522#0" expanded="true" />
             <element signature="e#680#681#0" expanded="true" />
             <element signature="e#719#720#0" expanded="true" />
+            <element signature="e#751#752#0" expanded="true" />
+            <element signature="e#776#777#0" expanded="true" />
+            <element signature="e#912#913#0" expanded="true" />
+            <element signature="e#933#934#0" expanded="true" />
           </folding>
         </state>
       </provider>

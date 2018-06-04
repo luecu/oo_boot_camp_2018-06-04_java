@@ -7,6 +7,7 @@ package chance;
 
 public class Chance {
     private static final double CERTAIN_FRACTION = 1.0;
+    private static final double DELTA = 0.0000001;
     private final double fraction;
 
     public Chance(double likelihoodAsFraction) {
@@ -22,15 +23,19 @@ public class Chance {
     }
 
     private boolean equals(Chance other) {
-        return this.fraction == other.fraction;
+        return Math.abs(this.fraction - other.fraction) < DELTA;
     }
 
     @Override
     public int hashCode() {
-        return Double.hashCode(fraction);
+        return Double.hashCode(Math.round(fraction + 100000.0) / 100000);
     }
 
     public Chance not() {
         return new Chance(CERTAIN_FRACTION - fraction);
+    }
+
+    public Chance and(Chance other) {
+        return new Chance(this.fraction * other.fraction);
     }
 }
