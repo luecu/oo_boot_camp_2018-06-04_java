@@ -7,11 +7,21 @@ package quantity;
 
 // Understands a specific metric
 public class Unit {
-    public static final Object TEASPOON = new Object();
-    public static final Object TABLESPOON = new Object();
-    public static final Object OUNCE = new Object();
-    public static final Object CUP = new Object();
-    public static final Object PINT = new Object();
-    public static final Object QUART = new Object();
-    public static final Object GALLON = new Object();
+    public static final Unit TEASPOON = new Unit();
+    public static final Unit TABLESPOON = new Unit(3, TEASPOON);
+    public static final Unit OUNCE = new Unit();
+    public static final Unit CUP = new Unit();
+    public static final Unit PINT = new Unit();
+    public static final Unit QUART = new Unit();
+    public static final Unit GALLON = new Unit();
+
+    private final double baseUnitRatio;
+
+    private Unit() {
+        baseUnitRatio = 1.0;
+    }
+
+    private Unit(double relativeRatio, Unit relativeUnit) {
+        baseUnitRatio = relativeRatio * relativeUnit.baseUnitRatio;
+    }
 }
