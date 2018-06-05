@@ -61,4 +61,10 @@ class QuantityTest {
         assertNotEquals(INCH.es(1), TEASPOON.s(1));
         assertNotEquals(OUNCE.s(4), FOOT.s(2));
     }
+
+    @Test
+    void mixedUnitArithmetic() {
+        assertThrows(IllegalArgumentException.class, () ->
+                YARD.s(3).minus(TABLESPOON.s(4)));
+    }
 }

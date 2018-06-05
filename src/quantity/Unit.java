@@ -45,6 +45,7 @@ public class Unit {
     }
 
     double convertedAmount(double otherAmount, Unit other) {
+        if (!this.isCompatible(other)) throw new IllegalArgumentException("Attempting arithmetic with mixed Unit types");
         return otherAmount * other.baseUnitRatio / this.baseUnitRatio;
     }
 
