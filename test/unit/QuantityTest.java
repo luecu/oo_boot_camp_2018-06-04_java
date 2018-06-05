@@ -30,6 +30,7 @@ class QuantityTest {
         assertEquals(OUNCE.s(4), CUP.s(0.5));
         assertEquals(TEASPOON.s(768), GALLON.s(1));
         assertNotEquals(TABLESPOON.s(6), OUNCE.s(6));
+        assertEquals(MILE.s(1), INCH.es(12 * 5280));
     }
 
 
@@ -44,6 +45,7 @@ class QuantityTest {
     void hash() {
         assertEquals(TABLESPOON.s(4).hashCode(), TABLESPOON.s(4).hashCode());
         assertEquals(TABLESPOON.s(4).hashCode(), OUNCE.s(2).hashCode());
+        assertEquals(FOOT.s(330).hashCode(), FURLONG.s(0.5).hashCode());
     }
 
     @Test
@@ -51,5 +53,6 @@ class QuantityTest {
         assertEquals(QUART.s(0.5), TABLESPOON.s(6).plus(OUNCE.s(13)));
         assertEquals(TABLESPOON.s(-6), TABLESPOON.s(6).negate());
         assertEquals(PINT.s(-0.5), TABLESPOON.s(10).minus(OUNCE.s(13)));
+        assertEquals(FOOT.s(-4), INCH.es(24).minus(YARD.s(2)));
     }
 }

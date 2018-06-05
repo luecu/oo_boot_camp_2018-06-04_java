@@ -7,6 +7,7 @@ package quantity;
 
 // Understands a specific measurement
 public class Quantity {
+    private static final double DELTA = 0.00000001;
 
     private final double amount;
     private final Unit unit;
@@ -23,7 +24,7 @@ public class Quantity {
     }
 
     private boolean equals(Quantity other) {
-        return this.amount == convertedAmount(other);
+        return Math.abs(this.amount - convertedAmount(other)) < DELTA;
     }
 
     private double convertedAmount(Quantity other) {
