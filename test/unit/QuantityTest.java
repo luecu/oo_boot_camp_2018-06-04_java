@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 import quantity.Quantity;
-import static quantity.Quantity.*;
+import static quantity.Unit.*;
 
 // Ensures Quantities operate correctly
 class QuantityTest {
