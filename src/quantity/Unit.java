@@ -24,9 +24,16 @@ public class Unit {
     public static final Unit MILE = new Unit(8, FURLONG);
 
     private final double baseUnitRatio;
+    private final Unit baseUnit;
 
     private Unit() {
         baseUnitRatio = 1.0;
+        baseUnit = this;
+    }
+
+    private Unit(double relativeRatio, Unit relativeUnit) {
+        baseUnitRatio = relativeRatio * relativeUnit.baseUnitRatio;
+        baseUnit = relativeUnit.baseUnit;
     }
 
     public Quantity s(double amount) {
@@ -37,15 +44,15 @@ public class Unit {
         return s(amount);
     }
 
-    private Unit(double relativeRatio, Unit relativeUnit) {
-        baseUnitRatio = relativeRatio * relativeUnit.baseUnitRatio;
-    }
-
     double convertedAmount(double otherAmount, Unit other) {
         return otherAmount * other.baseUnitRatio / this.baseUnitRatio;
     }
 
     int hashCode(double amount) {
         return Double.hashCode(amount * baseUnitRatio);
+    }
+
+    public boolean isCompatible(Unit other) {
+        return this.baseUnit == other.baseUnit;
     }
 }

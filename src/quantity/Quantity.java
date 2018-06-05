@@ -24,7 +24,12 @@ public class Quantity {
     }
 
     private boolean equals(Quantity other) {
-        return Math.abs(this.amount - convertedAmount(other)) < DELTA;
+        return this.isCompatible(other)
+                && Math.abs(this.amount - convertedAmount(other)) < DELTA;
+    }
+
+    private boolean isCompatible(Quantity other) {
+        return this.unit.isCompatible(other.unit);
     }
 
     private double convertedAmount(Quantity other) {
