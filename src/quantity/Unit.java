@@ -60,7 +60,7 @@ public class Unit {
     }
 
     int hashCode(double amount) {
-        return Double.hashCode(amount * baseUnitRatio);
+        return Double.hashCode((amount - offset) * baseUnitRatio);
     }
 
     public boolean isCompatible(Unit other) {

@@ -46,6 +46,7 @@ class QuantityTest {
         assertEquals(TABLESPOON.s(4).hashCode(), TABLESPOON.s(4).hashCode());
         assertEquals(TABLESPOON.s(4).hashCode(), OUNCE.s(2).hashCode());
         assertEquals(FOOT.s(330).hashCode(), FURLONG.s(0.5).hashCode());
+        assertEquals(CELSIUS.es(10).hashCode(), FAHRENHEIT.s(50).hashCode());
     }
 
     @Test
