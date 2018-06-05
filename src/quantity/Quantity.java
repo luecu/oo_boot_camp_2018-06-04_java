@@ -29,4 +29,9 @@ public class Quantity {
     private double convertedAmount(Quantity other) {
         return this.unit.convertedAmount(other.amount, other.unit);
     }
+
+    @Override
+    public int hashCode() {
+        return unit.hashCode(amount);
+    }
 }

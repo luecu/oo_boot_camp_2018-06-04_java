@@ -6,6 +6,10 @@ package unit;
  */
 
 import org.junit.jupiter.api.Test;
+
+import java.util.Arrays;
+import java.util.HashSet;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 import static quantity.Unit.*;
@@ -26,5 +30,19 @@ class QuantityTest {
         assertEquals(OUNCE.s(4), CUP.s(0.5));
         assertEquals(TEASPOON.s(768), GALLON.s(1));
         assertNotEquals(TABLESPOON.s(6), OUNCE.s(6));
+    }
+
+
+    @Test
+    void polymorphism() {
+        assertEquals(1, new HashSet<>(Arrays.asList(TABLESPOON.s(4), TABLESPOON.s(4))).size());
+        assertEquals(1, new HashSet<>(Arrays.asList(TABLESPOON.s(4), OUNCE.s(2))).size());
+        assertTrue(new HashSet<>(Arrays.asList(TABLESPOON.s(4), OUNCE.s(2))).contains(TEASPOON.s(12)));
+    }
+
+    @Test
+    void hash() {
+        assertEquals(TABLESPOON.s(4).hashCode(), TABLESPOON.s(4).hashCode());
+        assertEquals(TABLESPOON.s(4).hashCode(), OUNCE.s(2).hashCode());
     }
 }

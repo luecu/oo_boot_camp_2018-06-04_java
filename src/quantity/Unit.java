@@ -32,4 +32,8 @@ public class Unit {
     double convertedAmount(double otherAmount, Unit other) {
         return otherAmount * other.baseUnitRatio / this.baseUnitRatio;
     }
+
+    public int hashCode(double amount) {
+        return Double.hashCode(amount * baseUnitRatio);
+    }
 }
