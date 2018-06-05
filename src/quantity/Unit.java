@@ -6,25 +6,25 @@ package quantity;
  */
 
 // Understands a specific metric
-public class Unit {
-    public static final Unit TEASPOON = new Unit();
-    public static final Unit TABLESPOON = new Unit(3, TEASPOON);
-    public static final Unit OUNCE = new Unit(2, TABLESPOON);
-    public static final Unit CUP = new Unit(8, OUNCE);
-    public static final Unit PINT = new Unit(2, CUP);
-    public static final Unit QUART = new Unit(2, PINT);
-    public static final Unit GALLON = new Unit(4, QUART);
+public abstract class Unit {
+    public static final RatioUnit TEASPOON = new RatioUnit();
+    public static final RatioUnit TABLESPOON = new RatioUnit(3, TEASPOON);
+    public static final RatioUnit OUNCE = new RatioUnit(2, TABLESPOON);
+    public static final RatioUnit CUP = new RatioUnit(8, OUNCE);
+    public static final RatioUnit PINT = new RatioUnit(2, CUP);
+    public static final RatioUnit QUART = new RatioUnit(2, PINT);
+    public static final RatioUnit GALLON = new RatioUnit(4, QUART);
 
-    public static final Unit INCH = new Unit();
-    public static final Unit FOOT = new Unit(12, INCH);
-    public static final Unit YARD = new Unit(3, FOOT);
-    public static final Unit CHAIN = new Unit(22, YARD);
-    public static final Unit ROD = new Unit(1/10.0, CHAIN);
-    public static final Unit FURLONG = new Unit(10, CHAIN);
-    public static final Unit MILE = new Unit(8, FURLONG);
+    public static final RatioUnit INCH = new RatioUnit();
+    public static final RatioUnit FOOT = new RatioUnit(12, INCH);
+    public static final RatioUnit YARD = new RatioUnit(3, FOOT);
+    public static final RatioUnit CHAIN = new RatioUnit(22, YARD);
+    public static final RatioUnit ROD = new RatioUnit(1/10.0, CHAIN);
+    public static final RatioUnit FURLONG = new RatioUnit(10, CHAIN);
+    public static final RatioUnit MILE = new RatioUnit(8, FURLONG);
 
-    public static final Unit CELSIUS = new Unit();
-    public static final Unit FAHRENHEIT = new Unit(5/9.0, 32, CELSIUS);
+    public static final IntervalUnit CELSIUS = new IntervalUnit();
+    public static final IntervalUnit FAHRENHEIT = new IntervalUnit(5/9.0, 32, CELSIUS);
 
     private final double baseUnitRatio;
     private final double offset;
@@ -46,14 +46,6 @@ public class Unit {
         baseUnit = relativeUnit.baseUnit;
     }
 
-    public Quantity s(double amount) {
-        return new Quantity(amount, this);
-    }
-
-    public Quantity es(double amount) {
-        return s(amount);
-    }
-
     double convertedAmount(double otherAmount, Unit other) {
         if (!this.isCompatible(other)) throw new IllegalArgumentException("Attempting arithmetic with mixed Unit types");
         return (otherAmount - other.offset) * other.baseUnitRatio / this.baseUnitRatio + this.offset;
@@ -65,5 +57,25 @@ public class Unit {
 
     boolean isCompatible(Unit other) {
         return this.baseUnit == other.baseUnit;
+    }
+
+    public static class RatioUnit extends Unit {
+
+        private RatioUnit() { super(); }
+        private RatioUnit(double relativeRatio, Unit relativeUnit) { super(relativeRatio, 0.0, relativeUnit); }
+
+        public RatioQuantity s(double amount) { return new RatioQuantity(amount, this); }
+        public RatioQuantity es(double amount) { return s(amount); }
+    }
+
+    public static class IntervalUnit extends Unit {
+
+        private IntervalUnit() { super(); }
+        private IntervalUnit(double relativeRatio, double offset, Unit relativeUnit) {
+            super(relativeRatio, offset, relativeUnit);
+        }
+
+        public IntervalQuantity s(double amount) { return new IntervalQuantity(amount, this); }
+        public IntervalQuantity es(double amount) { return s(amount); }
     }
 }

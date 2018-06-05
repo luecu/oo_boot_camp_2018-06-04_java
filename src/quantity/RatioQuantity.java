@@ -5,14 +5,14 @@ package quantity;
  * @author Fred George
  */
 
-// Understands a specific measurement
-public class Quantity {
+// Understands a specific zero-based measurement
+public class RatioQuantity {
     private static final double DELTA = 0.00000001;
 
     private final double amount;
     private final Unit unit;
 
-    Quantity(double amount, Unit unit) {
+    RatioQuantity(double amount, Unit unit) {
         this.amount = amount;
         this.unit = unit;
     }
@@ -20,19 +20,19 @@ public class Quantity {
     @Override
     public boolean equals(Object other) {
         return this == other
-                || other instanceof Quantity && this.equals((Quantity)other);
+                || other instanceof RatioQuantity && this.equals((RatioQuantity)other);
     }
 
-    private boolean equals(Quantity other) {
+    private boolean equals(RatioQuantity other) {
         return this.isCompatible(other)
                 && Math.abs(this.amount - convertedAmount(other)) < DELTA;
     }
 
-    private boolean isCompatible(Quantity other) {
+    private boolean isCompatible(RatioQuantity other) {
         return this.unit.isCompatible(other.unit);
     }
 
-    private double convertedAmount(Quantity other) {
+    private double convertedAmount(RatioQuantity other) {
         return this.unit.convertedAmount(other.amount, other.unit);
     }
 
@@ -41,15 +41,15 @@ public class Quantity {
         return unit.hashCode(amount);
     }
     
-    public Quantity plus(Quantity other) {
-        return new Quantity(this.amount + convertedAmount(other), unit);
+    public RatioQuantity plus(RatioQuantity other) {
+        return new RatioQuantity(this.amount + convertedAmount(other), unit);
     }
 
-    public Quantity negate() {
-        return new Quantity(-amount, unit);
+    public RatioQuantity negate() {
+        return new RatioQuantity(-amount, unit);
     }
 
-    public Quantity minus(Quantity other) {
+    public RatioQuantity minus(RatioQuantity other) {
         return this.plus(other.negate());
     }
 }

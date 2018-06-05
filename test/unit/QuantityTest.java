@@ -82,4 +82,10 @@ class QuantityTest {
         assertEquals(CELSIUS.es(100), FAHRENHEIT.s(212));
         assertEquals(FAHRENHEIT.s(212), CELSIUS.es(100));
     }
+
+    @Test
+    void temperatureArithmetic() {
+        // The following should not compile!
+//         CELSIUS.es(10).minus(FAHRENHEIT.s(32));
+    }
 }
