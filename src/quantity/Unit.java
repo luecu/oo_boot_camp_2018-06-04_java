@@ -23,16 +23,26 @@ public class Unit {
     public static final Unit FURLONG = new Unit(10, CHAIN);
     public static final Unit MILE = new Unit(8, FURLONG);
 
+    public static final Unit CELSIUS = new Unit();
+    public static final Unit FAHRENHEIT = new Unit(5/9.0, 32, CELSIUS);
+
     private final double baseUnitRatio;
+    private final double offset;
     private final Unit baseUnit;
 
     private Unit() {
         baseUnitRatio = 1.0;
+        offset = 0.0;
         baseUnit = this;
     }
 
     private Unit(double relativeRatio, Unit relativeUnit) {
+        this(relativeRatio, 0.0, relativeUnit);
+    }
+
+    private Unit(double relativeRatio, double offset, Unit relativeUnit) {
         baseUnitRatio = relativeRatio * relativeUnit.baseUnitRatio;
+        this.offset = offset;
         baseUnit = relativeUnit.baseUnit;
     }
 
@@ -46,7 +56,7 @@ public class Unit {
 
     double convertedAmount(double otherAmount, Unit other) {
         if (!this.isCompatible(other)) throw new IllegalArgumentException("Attempting arithmetic with mixed Unit types");
-        return otherAmount * other.baseUnitRatio / this.baseUnitRatio;
+        return (otherAmount - other.offset) * other.baseUnitRatio / this.baseUnitRatio + this.offset;
     }
 
     int hashCode(double amount) {

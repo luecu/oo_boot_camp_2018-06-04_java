@@ -67,4 +67,16 @@ class QuantityTest {
         assertThrows(IllegalArgumentException.class, () ->
                 YARD.s(3).minus(TABLESPOON.s(4)));
     }
+
+    @Test
+    void temperature() {
+        assertEquals(CELSIUS.es(0), FAHRENHEIT.s(32));
+        assertEquals(FAHRENHEIT.s(32), CELSIUS.es(0));
+        assertEquals(CELSIUS.es(-40), FAHRENHEIT.s(-40));
+        assertEquals(FAHRENHEIT.s(-40), CELSIUS.es(-40));
+        assertEquals(CELSIUS.es(10), FAHRENHEIT.s(50));
+        assertEquals(FAHRENHEIT.s(50), CELSIUS.es(10));
+        assertEquals(CELSIUS.es(100), FAHRENHEIT.s(212));
+        assertEquals(FAHRENHEIT.s(212), CELSIUS.es(100));
+    }
 }
