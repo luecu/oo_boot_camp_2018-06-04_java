@@ -8,7 +8,6 @@ package unit;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-import quantity.Quantity;
 import static quantity.Unit.*;
 
 // Ensures Quantities operate correctly
@@ -24,6 +23,8 @@ class QuantityTest {
     
     @Test
     void equalityOfUnlikeUnits() {
+        assertEquals(OUNCE.s(4), CUP.s(0.5));
+        assertEquals(TEASPOON.s(768), GALLON.s(1));
         assertNotEquals(TABLESPOON.s(6), OUNCE.s(6));
     }
 }

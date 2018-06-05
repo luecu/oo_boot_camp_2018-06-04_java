@@ -9,9 +9,9 @@ package quantity;
 public class Quantity {
 
     private final double amount;
-    private final Object unit;
+    private final Unit unit;
 
-    Quantity(double amount, Object unit) {
+    Quantity(double amount, Unit unit) {
         this.amount = amount;
         this.unit = unit;
     }
@@ -23,6 +23,10 @@ public class Quantity {
     }
 
     private boolean equals(Quantity other) {
-        return this.amount == other.amount && this.unit == other.unit;
+        return this.amount == convertedAmount(other);
+    }
+
+    private double convertedAmount(Quantity other) {
+        return this.unit.convertedAmount(other.amount, other.unit);
     }
 }
