@@ -9,8 +9,8 @@ package quantity;
 public class IntervalQuantity {
     private static final double DELTA = 0.00000001;
 
-    private final double amount;
-    private final Unit unit;
+    final double amount;
+    final Unit unit;
 
     IntervalQuantity(double amount, Unit unit) {
         this.amount = amount;
@@ -32,7 +32,7 @@ public class IntervalQuantity {
         return this.unit.isCompatible(other.unit);
     }
 
-    private double convertedAmount(IntervalQuantity other) {
+    double convertedAmount(IntervalQuantity other) {
         return this.unit.convertedAmount(other.amount, other.unit);
     }
 

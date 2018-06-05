@@ -36,10 +36,6 @@ public abstract class Unit {
         baseUnit = this;
     }
 
-    private Unit(double relativeRatio, Unit relativeUnit) {
-        this(relativeRatio, 0.0, relativeUnit);
-    }
-
     private Unit(double relativeRatio, double offset, Unit relativeUnit) {
         baseUnitRatio = relativeRatio * relativeUnit.baseUnitRatio;
         this.offset = offset;
