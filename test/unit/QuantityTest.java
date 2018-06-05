@@ -16,14 +16,14 @@ class QuantityTest {
 
     @Test
     void equalityOfLikeUnits() {
-        assertEquals(new Quantity(6, TABLESPOON), new Quantity(6, TABLESPOON));
-        assertNotEquals(new Quantity(6, TABLESPOON), new Quantity(4, TABLESPOON));
-        assertNotEquals(new Quantity(6, TABLESPOON), new Object());
-        assertNotEquals(new Quantity(6, TABLESPOON), null);
+        assertEquals(TABLESPOON.s(6), TABLESPOON.s(6));
+        assertNotEquals(TABLESPOON.s(6), TABLESPOON.s(4));
+        assertNotEquals(TABLESPOON.s(6), new Object());
+        assertNotEquals(TABLESPOON.s(6), null);
     }
     
     @Test
     void equalityOfUnlikeUnits() {
-        assertNotEquals(new Quantity(6, TABLESPOON), new Quantity(6, OUNCE));
+        assertNotEquals(TABLESPOON.s(6), OUNCE.s(6));
     }
 }

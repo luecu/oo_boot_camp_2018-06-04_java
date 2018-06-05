@@ -21,6 +21,10 @@ public class Unit {
         baseUnitRatio = 1.0;
     }
 
+    public Quantity s(double amount) {
+        return new Quantity(amount, this);
+    }
+
     private Unit(double relativeRatio, Unit relativeUnit) {
         baseUnitRatio = relativeRatio * relativeUnit.baseUnitRatio;
     }

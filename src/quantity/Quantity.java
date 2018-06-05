@@ -11,7 +11,7 @@ public class Quantity {
     private final double amount;
     private final Object unit;
 
-    public Quantity(double amount, Object unit) {
+    Quantity(double amount, Object unit) {
         this.amount = amount;
         this.unit = unit;
     }

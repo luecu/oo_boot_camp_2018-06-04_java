@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c43f926e-f192-43b4-86e1-e2e7a4a97a77" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/src/quantity/Quantity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/quantity/Quantity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/quantity/Unit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/quantity/Unit.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -28,23 +29,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Quantity.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Quantity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/quantity/Quantity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="8" column="23" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
+            <state relative-caret-position="325">
+              <caret line="13" column="4" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="4" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Unit.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Unit.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/quantity/Unit.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="20" column="22" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="22" />
+            <state relative-caret-position="443">
+              <caret line="24" column="42" selection-start-line="24" selection-start-column="42" selection-end-line="24" selection-end-column="42" />
               <folding>
                 <element signature="e#642#643#0" expanded="true" />
                 <element signature="e#675#676#0" expanded="true" />
+                <element signature="e#713#714#0" expanded="true" />
+                <element signature="e#747#748#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -64,10 +67,12 @@
     <findStrings>
       <find>new Chance(0.75)</find>
       <find>TEASPOON</find>
+      <find>Object</find>
     </findStrings>
     <replaceStrings>
       <replace>LIKELY</replace>
       <replace>TABLESPOON</replace>
+      <replace>Unit</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -81,9 +86,9 @@
         <option value="$PROJECT_DIR$/test/unit/RectangleTest.java" />
         <option value="$PROJECT_DIR$/test/unit/ChanceTest.java" />
         <option value="$PROJECT_DIR$/src/chance/Chance.java" />
-        <option value="$PROJECT_DIR$/src/quantity/Quantity.java" />
         <option value="$PROJECT_DIR$/test/unit/QuantityTest.java" />
         <option value="$PROJECT_DIR$/src/quantity/Unit.java" />
+        <option value="$PROJECT_DIR$/src/quantity/Quantity.java" />
       </list>
     </option>
   </component>
@@ -242,9 +247,6 @@
     </recent_temporary>
   </component>
   <component name="TestHistory">
-    <history-entry file="All_in_oo_boot_camp_2018-06-04_java - 2018.06.04 at 14h 59m 12s.xml">
-      <configuration name="All in oo_boot_camp_2018-06-04_java" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="All_in_oo_boot_camp_2018-06-04_java - 2018.06.04 at 15h 00m 04s.xml">
       <configuration name="All in oo_boot_camp_2018-06-04_java" configurationId="JUnit" />
     </history-entry>
@@ -270,6 +272,9 @@
       <configuration name="All in oo_boot_camp_2018-06-04_java" configurationId="JUnit" />
     </history-entry>
     <history-entry file="All_in_oo_boot_camp_2018-06-04_java - 2018.06.05 at 12h 46m 56s.xml">
+      <configuration name="All in oo_boot_camp_2018-06-04_java" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_oo_boot_camp_2018-06-04_java - 2018.06.05 at 13h 01m 43s.xml">
       <configuration name="All in oo_boot_camp_2018-06-04_java" configurationId="JUnit" />
     </history-entry>
   </component>
@@ -413,13 +418,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/package-info.java" />
-    <entry file="file://$PROJECT_DIR$/src/quantity/Quantity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="8" column="23" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/unit/QuantityTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="264">
@@ -434,12 +432,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/quantity/Unit.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="20" column="22" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="22" />
+        <state relative-caret-position="443">
+          <caret line="24" column="42" selection-start-line="24" selection-start-column="42" selection-end-line="24" selection-end-column="42" />
           <folding>
             <element signature="e#642#643#0" expanded="true" />
             <element signature="e#675#676#0" expanded="true" />
+            <element signature="e#713#714#0" expanded="true" />
+            <element signature="e#747#748#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/quantity/Quantity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="13" column="4" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="4" />
         </state>
       </provider>
     </entry>
