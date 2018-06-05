@@ -63,7 +63,7 @@ public class Unit {
         return Double.hashCode((amount - offset) * baseUnitRatio);
     }
 
-    public boolean isCompatible(Unit other) {
+    boolean isCompatible(Unit other) {
         return this.baseUnit == other.baseUnit;
     }
 }

@@ -29,6 +29,8 @@ class QuantityTest {
     void equalityOfUnlikeUnits() {
         assertEquals(OUNCE.s(4), CUP.s(0.5));
         assertEquals(TEASPOON.s(768), GALLON.s(1));
+        assertEquals(ROD.s(1), FOOT.s(6.6));
+        assertEquals(FOOT.s(66), CHAIN.s(1));
         assertNotEquals(TABLESPOON.s(6), OUNCE.s(6));
         assertEquals(MILE.s(1), INCH.es(12 * 5280));
     }
