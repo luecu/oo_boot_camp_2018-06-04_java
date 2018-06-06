@@ -17,6 +17,8 @@ public class Rectangle {
         this.height = height;
     }
 
+    public static Rectangle square(double side) { return new Rectangle(side, side); }
+
     public double area() {
         return width * height;
     }

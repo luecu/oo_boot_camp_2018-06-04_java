@@ -6,7 +6,7 @@ OO Boot Camp in Java for Swiss client, 4-8 June 2018
 
 Java is the most difficult to setup since there is a broad variety of Java
 development tools (and versions). The following instructions are for installing
-the code in IntelliJ 2017 by JetBrains. Adapt as necessary for your environment.
+the code in IntelliJ 2018 by JetBrains. Adapt as necessary for your environment.
 
 ## IntelliJ setup
 Note: The original was setup to use Java SDK 10 and JUnit 5.
