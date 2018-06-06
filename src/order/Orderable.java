@@ -10,9 +10,9 @@ public interface Orderable<T extends Orderable> {
 
     boolean isBetterThan(T other);
 
-    static <T extends Orderable> T best(T ... elements) {
-        T champion = null;
-        for (T challenger : elements) {
+    static <S extends Orderable<? super S>> S best(S ... elements) {
+        S champion = null;
+        for (S challenger : elements) {
             if (champion == null || challenger.isBetterThan(champion))
                 champion = challenger;
         }
