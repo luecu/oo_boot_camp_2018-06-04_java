@@ -5,8 +5,10 @@ package quantity;
  * @author Fred George
  */
 
+import order.Orderable;
+
 // Understands a specific zero-based measurement
-public class IntervalQuantity {
+public class IntervalQuantity implements Orderable<IntervalQuantity> {
     private static final double DELTA = 0.00000001;
 
     final double amount;
@@ -39,5 +41,10 @@ public class IntervalQuantity {
     @Override
     public int hashCode() {
         return unit.hashCode(amount);
+    }
+
+    @Override
+    public boolean isBetterThan(IntervalQuantity other) {
+        return this.amount > convertedAmount(other);
     }
 }

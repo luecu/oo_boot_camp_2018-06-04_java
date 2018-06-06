@@ -11,6 +11,7 @@ import org.junit.jupiter.api.Test;
 import rectangle.Rectangle;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static quantity.Unit.*;
 
 // Ensures the ordering algorithms work against all relevant Objects
 public class OrderTest {
@@ -27,6 +28,16 @@ public class OrderTest {
     public void mostLikelyChance() {
         assertEquals(new Chance(0.75), Orderable.best(
                 new Chance(0.5), new Chance(0.75), new Chance(0.25)
+        ));
+    }
+
+    @Test
+    public void testMaxQuantity() {
+        assertEquals(QUART.s(2), Orderable.best(
+                GALLON.s(0.2), OUNCE.s(24), GALLON.s(0.5), CUP.s(7)
+        ));
+        assertEquals(CELSIUS.s(100), Orderable.best(
+                FAHRENHEIT.s(212), CELSIUS.s(0), FAHRENHEIT.s(50), CELSIUS.s(-40)
         ));
     }
 
