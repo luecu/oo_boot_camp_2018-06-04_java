@@ -8,7 +8,6 @@ package unit;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-import org.w3c.dom.css.Rect;
 import rectangle.Rectangle;
 
 // Ensures rectangle.Rectangle operates correctly

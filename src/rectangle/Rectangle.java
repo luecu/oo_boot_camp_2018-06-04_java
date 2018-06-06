@@ -5,8 +5,10 @@ package rectangle;
  * @author Fred George
  */
 
+import order.Orderable;
+
 // Understands a four-sided polygon with sides at right angles
-public class Rectangle {
+public class Rectangle implements Orderable<Rectangle> {
 
     private final double width;
     private final double height;
@@ -25,5 +27,10 @@ public class Rectangle {
 
     public double perimeter() {
         return 2 * (width + height);
+    }
+
+    @Override
+    public boolean isBetterThan(Rectangle other) {
+        return this.area() > other.area();
     }
 }
