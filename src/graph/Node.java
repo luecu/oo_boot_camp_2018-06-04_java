@@ -36,10 +36,9 @@ public class Node {
                 .reduce(UNREACHABLE, Math::min);
     }
 
+    // Uses an inner class static initializer (hence the double braces)
     private List<Node> copyWithThis(List<Node> original) {
-        List<Node> results = new ArrayList<>(original);
-        results.add(this);
-        return results;
+        return new ArrayList<>(original) {{ add(Node.this); }};
     }
 
     private List<Node> noVisitedNodes() {
