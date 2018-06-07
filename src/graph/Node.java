@@ -13,11 +13,6 @@ public class Node {
     private final static double UNREACHABLE = Double.POSITIVE_INFINITY;
     private final List<Link> links = new ArrayList<>();
 
-    public Node to(Node neighbor) {
-        links.add(new Link(neighbor));
-        return neighbor;
-    }
-
     public boolean canReach(Node destination) {
         return this.hopCount(destination, noVisitedNodes()) != UNREACHABLE;
     }
@@ -43,5 +38,25 @@ public class Node {
 
     private List<Node> noVisitedNodes() {
         return new ArrayList<>();
+    }
+
+    public LinkBuilder cost(double amount) {
+        return new LinkBuilder(amount, links);
+    }
+
+    public static class LinkBuilder {
+
+        private final double cost;
+        private final List<Link> links;
+
+        private LinkBuilder(double cost, List<Link> links) {
+            this.cost = cost;
+            this.links = links;
+        }
+
+        public Node to(Node target) {
+            links.add(new Link(target, cost));
+            return target;
+        }
     }
 }
