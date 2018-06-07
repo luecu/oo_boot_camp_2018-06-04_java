@@ -19,15 +19,7 @@ public class Node {
     }
 
     public boolean canReach(Node destination) {
-        return this.canReach(destination, noVisitedNodes());
-    }
-
-    private boolean canReach(Node destination, List<Node> visitedNodes) {
-        if (this == destination) return true;
-        if (visitedNodes.contains(this)) return false;
-        visitedNodes.add(this);
-        return neighbors.stream()
-                .anyMatch(n -> n.canReach(destination, visitedNodes));
+        return this.hopCount(destination, noVisitedNodes()) != UNREACHABLE;
     }
 
     public int hopCount(Node destination) {
