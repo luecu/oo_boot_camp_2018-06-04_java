@@ -31,6 +31,20 @@ public class Node {
                 .reduce(UNREACHABLE, Math::min);
     }
 
+    public int cost(Node destination) {
+        double result = this.cost(destination, noVisitedNodes());
+        if (result == UNREACHABLE) throw new IllegalArgumentException("Unreachable destination");
+        return (int)result;
+    }
+
+    double cost(Node destination, List<Node> visitedNodes) {
+        if (this == destination) return 0;
+        if (visitedNodes.contains(this)) return UNREACHABLE;
+        return links.stream()
+                .mapToDouble(link -> link.cost(destination, copyWithThis(visitedNodes)))
+                .reduce(UNREACHABLE, Math::min);
+    }
+
     // Uses an inner class static initializer (hence the double braces)
     private List<Node> copyWithThis(List<Node> original) {
         return new ArrayList<>(original) {{ add(Node.this); }};
