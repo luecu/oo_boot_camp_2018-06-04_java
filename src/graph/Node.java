@@ -6,7 +6,9 @@ package graph;
  */
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Objects;
 
 import static graph.Link.*;
 
@@ -52,6 +54,22 @@ public class Node {
 
     public LinkBuilder cost(double amount) {
         return new LinkBuilder(amount, links);
+    }
+
+    public Path path(Node destination) {
+        Path result = this.path(destination, noVisitedNodes());
+        if (result == null) throw new IllegalArgumentException("Unreachable destination");
+        return result;
+    }
+
+    Path path(Node destination, List<Node> visitedNodes) {
+        if (this == destination) return new Path();
+        if (visitedNodes.contains(this)) return null;
+        return links.stream()
+                .map(link -> link.path(destination, copyWithThis(visitedNodes)))
+                .filter(Objects::nonNull)
+                .min(Comparator.comparing(Path::cost))
+                .orElse(null);
     }
 
     public static class LinkBuilder {

@@ -9,6 +9,7 @@ import java.util.List;
 
 // Understands a connection to a specific Node
 class Link {
+
     interface CostStrategy { double cost(double cost); }
     static final CostStrategy LEAST_COST = cost -> cost;
     static final CostStrategy FEWEST_HOPS = ignore -> 1;
@@ -23,5 +24,17 @@ class Link {
 
     double cost(Node destination, List<Node> visitedNodes, CostStrategy strategy) {
         return target.cost(destination, visitedNodes, strategy) + strategy.cost(cost);
+    }
+
+    Path path(Node destination, List<Node> visitedNodes) {
+        final Path result = target.path(destination, visitedNodes);
+        if (result != null) result.prepend(this);
+        return result;
+    }
+
+    public static double totalCost(List<Link> links) {
+        return links.stream()
+                .mapToDouble(link -> link.cost)
+                .sum();
     }
 }
