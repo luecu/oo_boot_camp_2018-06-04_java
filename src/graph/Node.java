@@ -10,7 +10,7 @@ import java.util.List;
 
 // Understands its neighbors
 public class Node {
-    private final static int UNREACHABLE = -1;
+    private final static double UNREACHABLE = Double.POSITIVE_INFINITY;
     private final List<Node> neighbors = new ArrayList<>();
 
     public Node to(Node neighbor) {
@@ -23,24 +23,22 @@ public class Node {
     }
 
     public int hopCount(Node destination) {
-        int result = this.hopCount(destination, noVisitedNodes());
+        double result = this.hopCount(destination, noVisitedNodes());
         if (result == UNREACHABLE) throw new IllegalArgumentException("Unreachable destination");
-        return result;
+        return (int)result;
     }
 
-    private int hopCount(Node destination, List<Node> visitedNodes) {
+    private double hopCount(Node destination, List<Node> visitedNodes) {
         if (this == destination) return 0;
         if (visitedNodes.contains(this)) return UNREACHABLE;
         return neighborsHopCount(destination, visitedNodes);
     }
 
-    private int neighborsHopCount(Node destination, List<Node> visitedNodes) {
-        int champion = UNREACHABLE;
+    private double neighborsHopCount(Node destination, List<Node> visitedNodes) {
+        double champion = UNREACHABLE;
         for (Node n:neighbors) {
-            int challenger = n.hopCount(destination, copyWithThis(visitedNodes));
-            if (challenger == UNREACHABLE) continue;
-            if (champion == UNREACHABLE || challenger + 1 < champion)
-                champion = challenger + 1;
+            double challenger = n.hopCount(destination, copyWithThis(visitedNodes)) + 1;
+            champion = (challenger < champion) ? challenger : champion;
         }
         return champion;
     }
