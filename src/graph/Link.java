@@ -9,6 +9,9 @@ import java.util.List;
 
 // Understands a connection to a specific Node
 class Link {
+    interface CostStrategy { double cost(double cost); }
+    static final CostStrategy LEAST_COST = cost -> cost;
+
     private final Node target;
     private final double cost;
 
@@ -21,7 +24,7 @@ class Link {
         return target.hopCount(destination, visitedNodes) + 1;
     }
 
-    double cost(Node destination, List<Node> visitedNodes) {
-        return target.cost(destination, visitedNodes) + cost;
+    double cost(Node destination, List<Node> visitedNodes, CostStrategy strategy) {
+        return target.cost(destination, visitedNodes, strategy) + strategy.cost(cost);
     }
 }

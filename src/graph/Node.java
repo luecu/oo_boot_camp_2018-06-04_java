@@ -8,6 +8,8 @@ package graph;
 import java.util.ArrayList;
 import java.util.List;
 
+import static graph.Link.*;
+
 // Understands its links
 public class Node {
     private final static double UNREACHABLE = Double.POSITIVE_INFINITY;
@@ -32,16 +34,16 @@ public class Node {
     }
 
     public int cost(Node destination) {
-        double result = this.cost(destination, noVisitedNodes());
+        double result = this.cost(destination, noVisitedNodes(), LEAST_COST);
         if (result == UNREACHABLE) throw new IllegalArgumentException("Unreachable destination");
         return (int)result;
     }
 
-    double cost(Node destination, List<Node> visitedNodes) {
+    double cost(Node destination, List<Node> visitedNodes, CostStrategy strategy) {
         if (this == destination) return 0;
         if (visitedNodes.contains(this)) return UNREACHABLE;
         return links.stream()
-                .mapToDouble(link -> link.cost(destination, copyWithThis(visitedNodes)))
+                .mapToDouble(link -> link.cost(destination, copyWithThis(visitedNodes), strategy))
                 .reduce(UNREACHABLE, Math::min);
     }
 
