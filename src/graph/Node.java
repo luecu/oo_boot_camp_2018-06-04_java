@@ -31,16 +31,9 @@ public class Node {
     private double hopCount(Node destination, List<Node> visitedNodes) {
         if (this == destination) return 0;
         if (visitedNodes.contains(this)) return UNREACHABLE;
-        return neighborsHopCount(destination, visitedNodes);
-    }
-
-    private double neighborsHopCount(Node destination, List<Node> visitedNodes) {
-        double champion = UNREACHABLE;
-        for (Node n:neighbors) {
-            double challenger = n.hopCount(destination, copyWithThis(visitedNodes)) + 1;
-            champion = (challenger < champion) ? challenger : champion;
-        }
-        return champion;
+        return neighbors.stream()
+                .mapToDouble(n -> n.hopCount(destination, copyWithThis(visitedNodes)) + 1)
+                .reduce(UNREACHABLE, Math::min);
     }
 
     private List<Node> copyWithThis(List<Node> original) {
