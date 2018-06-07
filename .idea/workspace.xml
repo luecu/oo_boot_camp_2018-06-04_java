@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c43f926e-f192-43b4-86e1-e2e7a4a97a77" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/graph/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/graph/Node.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/unit/GraphTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/unit/GraphTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -16,11 +14,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="GraphTest.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="GraphTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test/unit/GraphTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="148">
-              <caret line="46" column="39" lean-forward="true" selection-start-line="46" selection-start-column="39" selection-end-line="46" selection-end-column="39" />
+            <state relative-caret-position="248">
+              <caret line="50" column="22" selection-start-line="50" selection-start-column="22" selection-end-line="50" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -28,15 +26,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Node.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Node.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/graph/Node.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="47" column="31" selection-start-line="47" selection-start-column="31" selection-end-line="47" selection-end-column="31" />
+            <state relative-caret-position="148">
+              <caret line="17" column="24" lean-forward="true" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1662#1663#0" expanded="true" />
-                <element signature="e#1702#1703#0" expanded="true" />
+                <element signature="e#513#514#0" expanded="true" />
+                <element signature="e#595#596#0" expanded="true" />
+                <element signature="e#1460#1461#0" expanded="true" />
+                <element signature="e#1500#1501#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -93,8 +93,8 @@
         <option value="$PROJECT_DIR$/test/unit/OrderTest.java" />
         <option value="$PROJECT_DIR$/src/quantity/IntervalQuantity.java" />
         <option value="$PROJECT_DIR$/src/order/Orderable.java" />
-        <option value="$PROJECT_DIR$/test/unit/GraphTest.java" />
         <option value="$PROJECT_DIR$/src/graph/Node.java" />
+        <option value="$PROJECT_DIR$/test/unit/GraphTest.java" />
       </list>
     </option>
   </component>
@@ -276,18 +276,6 @@
     </recent_temporary>
   </component>
   <component name="TestHistory">
-    <history-entry file="All_in_oo_boot_camp_2018-06-04_java - 2018.06.05 at 19h 27m 08s.xml">
-      <configuration name="All in oo_boot_camp_2018-06-04_java" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="All_in_oo_boot_camp_2018-06-04_java - 2018.06.05 at 19h 30m 45s.xml">
-      <configuration name="All in oo_boot_camp_2018-06-04_java" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="All_in_oo_boot_camp_2018-06-04_java - 2018.06.06 at 14h 10m 22s.xml">
-      <configuration name="All in oo_boot_camp_2018-06-04_java" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="All_in_oo_boot_camp_2018-06-04_java - 2018.06.06 at 14h 20m 29s.xml">
-      <configuration name="All in oo_boot_camp_2018-06-04_java" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="All_in_oo_boot_camp_2018-06-04_java - 2018.06.06 at 14h 55m 06s.xml">
       <configuration name="All in oo_boot_camp_2018-06-04_java" configurationId="JUnit" />
     </history-entry>
@@ -304,6 +292,18 @@
       <configuration name="All in oo_boot_camp_2018-06-04_java" configurationId="JUnit" />
     </history-entry>
     <history-entry file="All_in_oo_boot_camp_2018-06-04_java - 2018.06.07 at 09h 46m 16s.xml">
+      <configuration name="All in oo_boot_camp_2018-06-04_java" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_oo_boot_camp_2018-06-04_java - 2018.06.07 at 11h 23m 00s.xml">
+      <configuration name="All in oo_boot_camp_2018-06-04_java" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_oo_boot_camp_2018-06-04_java - 2018.06.07 at 11h 23m 15s.xml">
+      <configuration name="All in oo_boot_camp_2018-06-04_java" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_oo_boot_camp_2018-06-04_java - 2018.06.07 at 11h 24m 48s.xml">
+      <configuration name="All in oo_boot_camp_2018-06-04_java" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_oo_boot_camp_2018-06-04_java - 2018.06.07 at 11h 25m 06s.xml">
       <configuration name="All in oo_boot_camp_2018-06-04_java" configurationId="JUnit" />
     </history-entry>
   </component>
@@ -365,8 +365,10 @@
           <caret line="26" column="29" selection-start-line="26" selection-start-column="29" selection-end-line="26" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1662#1663#0" expanded="true" />
-            <element signature="e#1702#1703#0" expanded="true" />
+            <element signature="e#513#514#0" expanded="true" />
+            <element signature="e#595#596#0" expanded="true" />
+            <element signature="e#1460#1461#0" expanded="true" />
+            <element signature="e#1500#1501#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -629,24 +631,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/unit/GraphTest.java">
+    <entry file="file://$PROJECT_DIR$/src/graph/Node.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="148">
-          <caret line="46" column="39" lean-forward="true" selection-start-line="46" selection-start-column="39" selection-end-line="46" selection-end-column="39" />
+          <caret line="17" column="24" lean-forward="true" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#513#514#0" expanded="true" />
+            <element signature="e#595#596#0" expanded="true" />
+            <element signature="e#1460#1461#0" expanded="true" />
+            <element signature="e#1500#1501#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/graph/Node.java">
+    <entry file="file://$PROJECT_DIR$/test/unit/GraphTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="47" column="31" selection-start-line="47" selection-start-column="31" selection-end-line="47" selection-end-column="31" />
+        <state relative-caret-position="248">
+          <caret line="50" column="22" selection-start-line="50" selection-start-column="22" selection-end-line="50" selection-end-column="22" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1662#1663#0" expanded="true" />
-            <element signature="e#1702#1703#0" expanded="true" />
           </folding>
         </state>
       </provider>
