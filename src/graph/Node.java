@@ -20,7 +20,7 @@ public class Node {
     }
 
     public int hopCount(Node destination) {
-        double result = this.hopCount(destination, noVisitedNodes());
+        double result = this.cost(destination, noVisitedNodes(), FEWEST_HOPS);
         if (result == UNREACHABLE) throw new IllegalArgumentException("Unreachable destination");
         return (int)result;
     }
