@@ -5,23 +5,58 @@ package graph;
  * @author Fred George
  */
 
+import quantity.IntervalQuantity;
+
 import java.util.ArrayList;
 import java.util.List;
 
 // Understands a specific way from one Node to another Node
-public class Path {
+public abstract class Path {
 
-    private final List<Link> links = new ArrayList<>();
+    static final Path NONE = new NoPath();
 
-    public int hopCount() {
-        return links.size();
+    public abstract int hopCount();
+
+    public abstract double cost();
+
+    abstract void prepend(Link link);
+
+    static class ActualPath extends Path {
+        private final List<Link> links = new ArrayList<>();
+
+        ActualPath() { super(); }
+
+        @Override
+        public int hopCount() {
+            return links.size();
+        }
+
+        @Override
+        public double cost() {
+            return Link.totalCost(links);
+        }
+
+        @Override
+        void prepend(Link link) {
+            links.add(link);
+        }
     }
 
-    public double cost() {
-        return Link.totalCost(links);
-    }
+    private static class NoPath extends Path {
 
-    void prepend(Link link) {
-        links.add(0, link);
+        private NoPath() { super(); }
+
+        @Override
+        public int hopCount() {
+            return Integer.MAX_VALUE;
+        }
+
+        @Override
+        public double cost() {
+            return Double.POSITIVE_INFINITY;
+        }
+
+        @Override
+        void prepend(Link ignore) {} // No implementation required
     }
 }

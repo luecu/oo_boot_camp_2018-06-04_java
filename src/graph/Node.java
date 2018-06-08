@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Objects;
 
 import static graph.Link.*;
+import static graph.Path.ActualPath;
 
 // Understands its links
 public class Node {
@@ -58,18 +59,18 @@ public class Node {
 
     public Path path(Node destination) {
         Path result = this.path(destination, noVisitedNodes());
-        if (result == null) throw new IllegalArgumentException("Unreachable destination");
+        if (result == Path.NONE) throw new IllegalArgumentException("Unreachable destination");
         return result;
     }
 
     Path path(Node destination, List<Node> visitedNodes) {
-        if (this == destination) return new Path();
-        if (visitedNodes.contains(this)) return null;
+        if (this == destination) return new ActualPath();
+        if (visitedNodes.contains(this)) return Path.NONE;
         return links.stream()
                 .map(link -> link.path(destination, copyWithThis(visitedNodes)))
                 .filter(Objects::nonNull)
                 .min(Comparator.comparing(Path::cost))
-                .orElse(null);
+                .orElse(Path.NONE);
     }
 
     public static class LinkBuilder {
