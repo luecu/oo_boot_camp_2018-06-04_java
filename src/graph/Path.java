@@ -8,18 +8,20 @@ package graph;
 import quantity.IntervalQuantity;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 // Understands a specific way from one Node to another Node
 public abstract class Path {
 
     static final Path NONE = new NoPath();
+    static final Comparator<Path> LEAST_COST = Comparator.comparing(Path::cost);
 
     public abstract int hopCount();
 
     public abstract double cost();
 
-    abstract void prepend(Link link);
+    abstract Path prepend(Link link);
 
     static class ActualPath extends Path {
         private final List<Link> links = new ArrayList<>();
@@ -37,8 +39,9 @@ public abstract class Path {
         }
 
         @Override
-        void prepend(Link link) {
+        Path prepend(Link link) {
             links.add(link);
+            return this;
         }
     }
 
@@ -57,6 +60,6 @@ public abstract class Path {
         }
 
         @Override
-        void prepend(Link ignore) {} // No implementation required
+        Path prepend(Link ignore) { return this; } // No implementation required
     }
 }

@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
+import java.util.concurrent.ConcurrentMap;
 
 import static graph.Link.*;
 import static graph.Path.ActualPath;
@@ -58,18 +59,18 @@ public class Node {
     }
 
     public Path path(Node destination) {
-        Path result = this.path(destination, noVisitedNodes());
+        Path result = this.path(destination, noVisitedNodes(), Path.LEAST_COST);
         if (result == Path.NONE) throw new IllegalArgumentException("Unreachable destination");
         return result;
     }
 
-    Path path(Node destination, List<Node> visitedNodes) {
+    Path path(Node destination, List<Node> visitedNodes, Comparator<Path> strategy) {
         if (this == destination) return new ActualPath();
         if (visitedNodes.contains(this)) return Path.NONE;
         return links.stream()
-                .map(link -> link.path(destination, copyWithThis(visitedNodes)))
+                .map(link -> link.path(destination, copyWithThis(visitedNodes), strategy))
                 .filter(Objects::nonNull)
-                .min(Comparator.comparing(Path::cost))
+                .min(strategy)
                 .orElse(Path.NONE);
     }
 

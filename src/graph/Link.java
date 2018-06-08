@@ -5,6 +5,7 @@ package graph;
  * @author Fred George
  */
 
+import java.util.Comparator;
 import java.util.List;
 
 // Understands a connection to a specific Node
@@ -26,10 +27,8 @@ class Link {
         return target.cost(destination, visitedNodes, strategy) + strategy.cost(cost);
     }
 
-    Path path(Node destination, List<Node> visitedNodes) {
-        final Path result = target.path(destination, visitedNodes);
-        if (result != null) result.prepend(this);
-        return result;
+    Path path(Node destination, List<Node> visitedNodes, Comparator<Path> strategy) {
+        return target.path(destination, visitedNodes, strategy).prepend(this);
     }
 
     public static double totalCost(List<Link> links) {
