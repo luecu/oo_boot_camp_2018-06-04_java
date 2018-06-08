@@ -23,6 +23,12 @@ class Link {
         return target.path(destination, visitedNodes, strategy).prepend(this);
     }
 
+    List<Path> paths(Node destination, List<Node> visitedNodes) {
+        List<Path> results = target.paths(destination, visitedNodes);
+        results.forEach(p -> p.prepend(this));
+        return results;
+    }
+
     static double totalCost(List<Link> links) {
         return links.stream()
                 .mapToDouble(link -> link.cost)

@@ -6,6 +6,7 @@ package graph;
  */
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
@@ -58,6 +59,19 @@ public class Node {
                 .map(link -> link.path(destination, copyWithThis(visitedNodes), strategy))
                 .min(strategy)
                 .orElse(Path.NONE);
+    }
+
+    public List<Path> paths(Node destination) {
+        return paths(destination, noVisitedNodes());
+    }
+
+    List<Path> paths(Node destination, List<Node> visitedNodes) {
+        if (this == destination) return Collections.singletonList(new ActualPath());
+        if (visitedNodes.contains(this)) return Collections.emptyList();
+        List<Path> results = new ArrayList<>();
+        for(Link link:links)
+            results.addAll(link.paths(destination, copyWithThis(visitedNodes)));
+        return results;
     }
 
     public static class LinkBuilder {
