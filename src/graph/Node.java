@@ -47,9 +47,9 @@ public class Node {
     }
 
     private Path path(Node destination, Comparator<Path> strategy) {
-        Path result = this.path(destination, noVisitedNodes(), strategy);
-        if (result == Path.NONE) throw new IllegalArgumentException("Unreachable destination");
-        return result;
+        List<Path> paths = this.paths(destination, noVisitedNodes());
+        if (paths.isEmpty()) throw new IllegalArgumentException("Unreachable destination");
+        return Collections.min(paths, strategy);
     }
 
     Path path(Node destination, List<Node> visitedNodes, Comparator<Path> strategy) {
