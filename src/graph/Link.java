@@ -23,7 +23,7 @@ class Link {
         return target.path(destination, visitedNodes, strategy).prepend(this);
     }
 
-    public static double totalCost(List<Link> links) {
+    static double totalCost(List<Link> links) {
         return links.stream()
                 .mapToDouble(link -> link.cost)
                 .sum();

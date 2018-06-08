@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import graph.Node;
 
 // Ensures various graph APIs work as expected
-public class GraphTest {
+class GraphTest {
     private final static double EPSILON = 0.00000000001;
 
     private final static Node A, B, C, D, E, F, G;
