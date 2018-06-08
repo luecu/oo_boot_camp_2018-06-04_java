@@ -16,6 +16,7 @@ public abstract class Path {
 
     static final Path NONE = new NoPath();
     static final Comparator<Path> LEAST_COST = Comparator.comparing(Path::cost);
+    static final Comparator<Path> FEWEST_HOPS = Comparator.comparing(Path::hopCount);
 
     public abstract int hopCount();
 

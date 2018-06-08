@@ -9,40 +9,24 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
-import java.util.concurrent.ConcurrentMap;
 
-import static graph.Link.*;
-import static graph.Path.ActualPath;
+import static graph.Path.*;
 
 // Understands its links
 public class Node {
-    private final static double UNREACHABLE = Double.POSITIVE_INFINITY;
+
     private final List<Link> links = new ArrayList<>();
 
     public boolean canReach(Node destination) {
-        return this.cost(destination, noVisitedNodes(), LEAST_COST) != UNREACHABLE;
+        return this.path(destination, noVisitedNodes(), LEAST_COST) != Path.NONE;
     }
 
     public int hopCount(Node destination) {
-        return (int)cost(destination, FEWEST_HOPS);
+        return path(destination, FEWEST_HOPS).hopCount();
     }
 
     public double cost(Node destination) {
-        return cost(destination, LEAST_COST);
-    }
-
-    private double cost(Node destination, CostStrategy strategy) {
-        double result = this.cost(destination, noVisitedNodes(), strategy);
-        if (result == UNREACHABLE) throw new IllegalArgumentException("Unreachable destination");
-        return result;
-    }
-
-    double cost(Node destination, List<Node> visitedNodes, CostStrategy strategy) {
-        if (this == destination) return 0;
-        if (visitedNodes.contains(this)) return UNREACHABLE;
-        return links.stream()
-                .mapToDouble(link -> link.cost(destination, copyWithThis(visitedNodes), strategy))
-                .reduce(UNREACHABLE, Math::min);
+        return path(destination).cost();
     }
 
     // Uses an inner class static initializer (hence the double braces)
@@ -59,7 +43,11 @@ public class Node {
     }
 
     public Path path(Node destination) {
-        Path result = this.path(destination, noVisitedNodes(), Path.LEAST_COST);
+        return this.path(destination, Path.LEAST_COST);
+    }
+
+    private Path path(Node destination, Comparator<Path> strategy) {
+        Path result = this.path(destination, noVisitedNodes(), strategy);
         if (result == Path.NONE) throw new IllegalArgumentException("Unreachable destination");
         return result;
     }
