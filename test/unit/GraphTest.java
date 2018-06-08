@@ -86,3 +86,12 @@ class GraphTest {
         assertEquals(expectedCost, p.cost(), EPSILON);
     }
 }
+/*
+    Function        path()
+    Classes         6 + 2
+    Methods         25
+    Lines of Code   40
+    Avg method      1.6
+    Test loc        47
+    Test ratio      54%
+ */

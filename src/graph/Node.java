@@ -8,7 +8,6 @@ package graph;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-import java.util.Objects;
 
 import static graph.Path.*;
 
@@ -57,7 +56,6 @@ public class Node {
         if (visitedNodes.contains(this)) return Path.NONE;
         return links.stream()
                 .map(link -> link.path(destination, copyWithThis(visitedNodes), strategy))
-                .filter(Objects::nonNull)
                 .min(strategy)
                 .orElse(Path.NONE);
     }
