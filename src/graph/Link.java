@@ -5,7 +5,6 @@ package graph;
  * @author Fred George
  */
 
-import java.util.Comparator;
 import java.util.List;
 
 // Understands a connection to a specific Node
@@ -17,10 +16,6 @@ class Link {
     Link(Node target, double cost) {
         this.target = target;
         this.cost = cost;
-    }
-
-    Path path(Node destination, List<Node> visitedNodes, Comparator<Path> strategy) {
-        return target.path(destination, visitedNodes, strategy).prepend(this);
     }
 
     List<Path> paths(Node destination, List<Node> visitedNodes) {

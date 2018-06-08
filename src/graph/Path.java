@@ -9,56 +9,25 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-// Understands a specific way from one Node to another Node
-public abstract class Path {
 
-    static final Path NONE = new NoPath();
+// Understands a specific way from one Node to another Node
+public class Path {
     static final Comparator<Path> LEAST_COST = Comparator.comparing(Path::cost);
     static final Comparator<Path> FEWEST_HOPS = Comparator.comparing(Path::hopCount);
 
-    public abstract int hopCount();
+    private final List<Link> links = new ArrayList<>();
 
-    public abstract double cost();
+    Path() { super(); }
 
-    abstract Path prepend(Link link);
-
-    static class ActualPath extends Path {
-        private final List<Link> links = new ArrayList<>();
-
-        ActualPath() { super(); }
-
-        @Override
-        public int hopCount() {
-            return links.size();
-        }
-
-        @Override
-        public double cost() {
-            return Link.totalCost(links);
-        }
-
-        @Override
-        Path prepend(Link link) {
-            links.add(link);
-            return this;
-        }
+    public int hopCount() {
+        return links.size();
     }
 
-    private static class NoPath extends Path {
+    public double cost() {
+        return Link.totalCost(links);
+    }
 
-        private NoPath() { super(); }
-
-        @Override
-        public int hopCount() {
-            return Integer.MAX_VALUE;
-        }
-
-        @Override
-        public double cost() {
-            return Double.POSITIVE_INFINITY;
-        }
-
-        @Override
-        Path prepend(Link ignore) { return this; } // No implementation required
+    void prepend(Link link) {
+        links.add(link);
     }
 }

@@ -99,11 +99,11 @@ class GraphTest {
     }
 }
 /*
-    Function        path()
-    Classes         6 + 2
-    Methods         25
-    Lines of Code   40
-    Avg method      1.6
-    Test loc        47
-    Test ratio      54%
+    Function        path()  paths()
+    Classes         6 + 2   4 + 2
+    Methods         25      21
+    Lines of Code   40      37
+    Avg method      1.6     1.8
+    Test loc        47      55
+    Test ratio      54%     60%
  */

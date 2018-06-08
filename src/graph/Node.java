@@ -18,7 +18,7 @@ public class Node {
     private final List<Link> links = new ArrayList<>();
 
     public boolean canReach(Node destination) {
-        return this.path(destination, noVisitedNodes(), LEAST_COST) != Path.NONE;
+        return !paths(destination).isEmpty();
     }
 
     public int hopCount(Node destination) {
@@ -43,7 +43,7 @@ public class Node {
     }
 
     public Path path(Node destination) {
-        return this.path(destination, Path.LEAST_COST);
+        return path(destination, Path.LEAST_COST);
     }
 
     private Path path(Node destination, Comparator<Path> strategy) {
@@ -52,21 +52,12 @@ public class Node {
         return Collections.min(paths, strategy);
     }
 
-    Path path(Node destination, List<Node> visitedNodes, Comparator<Path> strategy) {
-        if (this == destination) return new ActualPath();
-        if (visitedNodes.contains(this)) return Path.NONE;
-        return links.stream()
-                .map(link -> link.path(destination, copyWithThis(visitedNodes), strategy))
-                .min(strategy)
-                .orElse(Path.NONE);
-    }
-
     public List<Path> paths(Node destination) {
         return paths(destination, noVisitedNodes());
     }
 
     List<Path> paths(Node destination, List<Node> visitedNodes) {
-        if (this == destination) return Collections.singletonList(new ActualPath());
+        if (this == destination) return Collections.singletonList(new Path());
         if (visitedNodes.contains(this)) return Collections.emptyList();
         List<Path> results = new ArrayList<>();
         for(Link link:links)
